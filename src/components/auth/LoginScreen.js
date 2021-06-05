@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from "react-redux";
 import { Link } from 'react-router-dom'
-import { login } from '../../actions/auth';
+import { startLoginEmailPasssword } from '../../actions/auth';
 import { useForm } from '../../hooks/useForm';
 
 
@@ -17,7 +17,7 @@ export const LoginScreen = () => {
 
     const haldeLogin = (e) => {
         e.preventDefault();
-        dispatch(login(12345, 'nasho'))
+        dispatch(startLoginEmailPasssword(email, password))
 
     }
 
