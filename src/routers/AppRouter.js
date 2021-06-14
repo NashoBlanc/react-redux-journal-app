@@ -26,6 +26,8 @@ export const AppRouter = () => {
             } else {
                 setIsLoggerdIn(false);
             }
+
+            setChecking(false);
         });
     }, [dispatch, setChecking]);
 
