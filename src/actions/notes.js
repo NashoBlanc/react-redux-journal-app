@@ -2,6 +2,7 @@ import {db} from '../firebase/firebase-config';
 import { loadNotes } from '../helpers/loadNotes';
 import { types } from '../types/types';
 import Swal from 'sweetalert2';
+import { fileUpload } from '../helpers/fileUpload';
 // get state params is to get actual state!
 export const startNewNote = () => {
     return async (dispatch, getState) => {
@@ -63,4 +64,15 @@ export const startSaveNote =  (note) => {
 export const refreshNotes = (id, note) => ({
     type: types.notesUpdated,
     payload: {id, note: {id, ...note}}
-})
+});
+
+export const startUploading = (file) => {
+    return async (dispatch, getState) => {
+        const {active: activeNote} = getState().notes;
+
+        const fileUrl = await fileUpload(file);
+
+        console.log(fileUrl);
+    }
+}
+
